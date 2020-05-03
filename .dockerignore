@@ -1,0 +1,11 @@
+.git/
+.gitignore
+.idea/
+.data/
+docker-compose*.yml
+docker/containers
+src/**/static/
+src/**/media/
+docker/envs/.**
+venv/
+env

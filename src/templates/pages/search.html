@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2 style="text-align: center">We found something for you :)</h2>
+  <div class="article-list">
+    {% for article in articles %}
+      <div class="article">
+        <h3>{{ article.title }}</h3>
+        <p>{{ article.body|slice:":160" }}...</p>
+      </div>
+    {% endfor %}
+  </div>
+
+{% endblock %}

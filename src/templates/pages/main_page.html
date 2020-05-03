@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="search-block">
+    <form action="{% url 'articles:search-results' %}">
+      <h1>Google</h1>
+      
+      <div class="search-input">
+        <label>
+          <input type="text" name="search" placeholder="Search something ...">
+        </label>
+        <input type="submit">
+      </div>
+    </form>
+  </div>
+{% endblock %}
