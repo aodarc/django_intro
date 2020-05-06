@@ -15,8 +15,8 @@ POSTGRES_PASSWORD=django_intro
 POSTGRES_USER=django_intro
 POSTGRES_DB=django_intro_local
 
-MEDIA_ROOT=media
-STATIC_ROOT=static
+MEDIA_ROOT=src/static
+STATIC_ROOT=src/media
 
 LANGUAGE_CODE=en-us
 ALLOWED_HOSTS=*, 127.0.0.1, localhost
