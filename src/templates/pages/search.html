@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load tz %}
 
 {% block content %}
   <h2 style="text-align: center">We found something for you :)</h2>
@@ -10,5 +11,10 @@
       </div>
     {% endfor %}
   </div>
+{% include 'molecula.html' %}
+{% endblock %}
 
+{% block scripts %}
+  {{ block.super }}
+  <script></script>
 {% endblock %}

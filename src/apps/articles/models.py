@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -22,3 +23,4 @@ class Article(models.Model):
         on_delete=models.SET_NULL,
         related_name='articles'
     )
+    image = models.ImageField(upload_to='articles', null=True, blank=True)
