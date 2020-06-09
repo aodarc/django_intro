@@ -24,3 +24,6 @@ class Article(models.Model):
         related_name='articles'
     )
     image = models.ImageField(upload_to='articles', null=True, blank=True)
+
+    class Meta:
+        permissions = [('can_approve', 'Can approve')]

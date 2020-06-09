@@ -11,8 +11,33 @@
       </div>
     {% endfor %}
   </div>
-{% include 'molecula.html' %}
+  {% include 'molecula.html' %}
 {% endblock %}
+
+<form action="" method="post">{% csrf_token %}
+
+  {% for field in form.fields %}
+    {{ field }}
+  {% endfor %}
+  {#{{ form.fields.email }}#}
+  {#{{ form }}#}
+  <input type="submit">
+  {{ form.as_p }}
+  <p>
+    <label for="">
+      <input type="text" name="">
+    </label>
+  </p>
+  <input type="email">
+<texarea name="asfsa"></texarea>
+
+  <select name="" id="" multiple>
+    <option value=""></option>
+    <option value=""></option>
+    <option value=""></option>
+    <option value=""></option>
+  </select>
+</form>
 
 {% block scripts %}
   {{ block.super }}
