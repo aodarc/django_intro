@@ -1,13 +1,17 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.sessions.models import Session
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 # Create your views here.
 from django.urls import reverse
+from django.utils.decorators import method_decorator
 from django.views import View
+from django.views.decorators.cache import cache_page
 from django.views.generic import TemplateView, DetailView, FormView
 
 from apps.articles.forms import ArticleImageForm
 from apps.articles.models import Article
+from apps.articles.utils import get_articles
 
 
 def main_page(request, some_id=None, *args, **kwargs):
@@ -20,12 +24,13 @@ def main_page_logged_id(request, some_id=None, *args, **kwargs):
 
 
 class SearchResultsView(View):
+
+    # @method_decorator(cache_page(60))
     def get(self, request, **kwargs):
         # form = SearchForm(data=request.GET)
-        url = reverse('articles:search-results')
         search_q = request.GET.get('search', '')
         if search_q:
-            articles = Article.objects.filter(title__icontains=search_q)
+            articles = get_articles(search_q, 120)
         else:
             articles = Article.objects.all()
 
